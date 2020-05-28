@@ -15,7 +15,7 @@ public class Market {
         );
     }
 
-    public Money calculateSavedPoint(Money totalFee, Customer customer) {
+    private Money calculateSavedPoint(Money totalFee, Customer customer) {
         Rank customerRank = customer.getRank();
         if (Rank.PLATINUM.equals(customerRank)) {
             return totalFee.times(0.2);

@@ -26,4 +26,21 @@ public class Receipt {
         this.savedPoint = savedPoint;
         this.purchaseDateTime = LocalDateTime.now();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Receipt)) {
+            return false;
+        }
+
+        Receipt other = (Receipt) obj;
+
+        return buyerName.equals(other.buyerName)
+                && productName.equals(other.productName)
+                && price == other.price
+                && purchaseQuantity == other.purchaseQuantity
+                && totalPrice.equals(other.totalPrice)
+                && savedPoint.equals(other.savedPoint)
+                && purchaseDateTime.equals(other.purchaseDateTime);
+    }
 }
