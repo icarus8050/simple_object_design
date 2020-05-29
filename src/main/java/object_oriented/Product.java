@@ -1,4 +1,4 @@
-package data_oriented;
+package object_oriented;
 
 public class Product {
 

@@ -2,27 +2,29 @@ package data_oriented;
 
 public class Market {
     public Receipt buy(Product product, Customer customer, int quantity) {
-        Money totalFee = product.calculateFee(quantity);
-        Money savedPoint = calculateSavedPoint(totalFee, customer);
+        Money totalPrice = product.calculatePrice(quantity);
+        Money savedPoint = calculateSavingPoint(customer, totalPrice);
+        customer.savePoint(savedPoint);
 
         return new Receipt(
                 customer.getName(),
                 product.getName(),
                 product.getPrice(),
                 quantity,
-                totalFee,
+                totalPrice,
                 savedPoint
         );
     }
 
-    private Money calculateSavedPoint(Money totalFee, Customer customer) {
+    private Money calculateSavingPoint(Customer customer, Money totalPrice) {
         Rank customerRank = customer.getRank();
+
         if (Rank.PLATINUM.equals(customerRank)) {
-            return totalFee.times(0.2);
+            return totalPrice.times(0.2);
         } else if (Rank.GOLD.equals(customerRank)) {
-            return totalFee.times(0.1);
+            return totalPrice.times(0.1);
         } else {
-            return totalFee.times(0.05);
+            return totalPrice.times(0.05);
         }
     }
 }
