@@ -9,7 +9,7 @@ public class WeekSavingPointAfterPolicy extends SavingPointAfterPolicy {
     }
 
     @Override
-    Money afterPointProcess(Money totalPrice) {
+    protected Money afterPointProcess(Money totalPrice) {
         if (todayIsWeekend()) {
             return Money.wons(500);
         }
