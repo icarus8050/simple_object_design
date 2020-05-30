@@ -26,4 +26,32 @@ public class Receipt {
         this.savedPoint = savedPoint;
         this.purchaseDateTime = LocalDateTime.now();
     }
+
+    public String getBuyerName() {
+        return buyerName;
+    }
+
+    public String getProductName() {
+        return productName;
+    }
+
+    public Money getPrice() {
+        return price;
+    }
+
+    public int getPurchaseQuantity() {
+        return purchaseQuantity;
+    }
+
+    public Money getTotalPrice() {
+        return totalPrice;
+    }
+
+    public Money getSavedPoint() {
+        return savedPoint;
+    }
+
+    public LocalDateTime getPurchaseDateTime() {
+        return purchaseDateTime;
+    }
 }
