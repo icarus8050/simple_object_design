@@ -1,5 +1,6 @@
 package object_oriented;
 
+import java.time.DayOfWeek;
 import java.time.LocalDate;
 
 public class WeekSavingPointAfterPolicy extends SavingPointAfterPolicy {
@@ -20,9 +21,8 @@ public class WeekSavingPointAfterPolicy extends SavingPointAfterPolicy {
     private boolean todayIsWeekend() {
         LocalDate currentDate = LocalDate.now();
 
-        // 1. 월요일, 2. 화요일, ... , 7. 일요일
-        int today = currentDate.getDayOfWeek().getValue();
+        DayOfWeek today = currentDate.getDayOfWeek();
 
-        return today == 6 || today == 7;
+        return today.equals(DayOfWeek.SATURDAY) || today.equals(DayOfWeek.SUNDAY);
     }
 }
