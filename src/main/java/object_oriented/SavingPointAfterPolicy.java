@@ -16,5 +16,5 @@ public abstract class SavingPointAfterPolicy implements SavingPointPolicy {
         return point.plus(afterAddedPoint);
     }
 
-    abstract Money afterPointProcess(Money totalPrice);
+    abstract protected Money afterPointProcess(Money totalPrice);
 }
